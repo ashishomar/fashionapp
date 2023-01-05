@@ -84,8 +84,8 @@ const Navbar = () => {
 						<div className="col-lg-3">
 							<div className="header__right">
 								<div className="header__right__auth">
-									<a href="#">Login</a>
-									<a href="#">Register</a>
+									<a href="/Login">Login</a>
+									<a href="/Register">Register</a>
 								</div>
 								<ul className="header__right__widget">
 									

@@ -74,7 +74,7 @@ const Cart = () =>
                                                     <span className="icon_close" />
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            {/* <tr>
                                                 <td className="cart__product__item">
                                                     <img src="img/shop-cart/cp-2.jpg" alt="" />
                                                     <div className="cart__product__item__title">
@@ -98,7 +98,7 @@ const Cart = () =>
                                                 <td className="cart__close">
                                                     <span className="icon_close" />
                                                 </td>
-                                            </tr>
+                                            </tr> 
                                             <tr>
                                                 <td className="cart__product__item">
                                                     <img src="img/shop-cart/cp-3.jpg" alt="" />
@@ -148,7 +148,7 @@ const Cart = () =>
                                                 <td className="cart__close">
                                                     <span className="icon_close" />
                                                 </td>
-                                            </tr>
+                                            </tr> */}
                                         </tbody>
                                     </table>
                                 </div>

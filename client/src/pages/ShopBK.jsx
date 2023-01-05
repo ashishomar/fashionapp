@@ -3,7 +3,7 @@ import Footer from "../components/Footer"
 import Instagram from "../components/Instagram"
 import Navbar from "../components/Navbar"
 
-const Shop = () => {
+const ShopBK = () => {
 	return (
 		<>
 			<Navbar />
@@ -45,7 +45,45 @@ const Shop = () => {
 														Women
 													</a>
 												</div>
-											
+												<div
+													id="collapseOne"
+													className="collapse show"
+													data-parent="#accordionExample">
+													<div className="card-body">
+														<ul>
+															<li>
+																<a href="#">
+																	Coats
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jackets
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Dresses
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	T-shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jeans
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
 											</div>
 											<div className="card">
 												<div className="card-heading">
@@ -55,7 +93,45 @@ const Shop = () => {
 														Men
 													</a>
 												</div>
-												
+												<div
+													id="collapseTwo"
+													className="collapse"
+													data-parent="#accordionExample">
+													<div className="card-body">
+														<ul>
+															<li>
+																<a href="#">
+																	Coats
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jackets
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Dresses
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	T-shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jeans
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
 											</div>
 											<div className="card">
 												<div className="card-heading">
@@ -69,7 +145,40 @@ const Shop = () => {
 													id="collapseThree"
 													className="collapse"
 													data-parent="#accordionExample">
-													
+													<div className="card-body">
+														<ul>
+															<li>
+																<a href="#">
+																	Coats
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jackets
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Dresses
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	T-shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jeans
+																</a>
+															</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 											<div className="card">
@@ -84,7 +193,40 @@ const Shop = () => {
 													id="collapseFour"
 													className="collapse"
 													data-parent="#accordionExample">
-													
+													<div className="card-body">
+														<ul>
+															<li>
+																<a href="#">
+																	Coats
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jackets
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Dresses
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	T-shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jeans
+																</a>
+															</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 											<div className="card">
@@ -99,7 +241,40 @@ const Shop = () => {
 													id="collapseFive"
 													className="collapse"
 													data-parent="#accordionExample">
-													
+													<div className="card-body">
+														<ul>
+															<li>
+																<a href="#">
+																	Coats
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jackets
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Dresses
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	T-shirts
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	Jeans
+																</a>
+															</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -131,8 +306,109 @@ const Shop = () => {
 									</div>
 									<a href="#">Filter</a>
 								</div>
-								
-								
+								<div className="sidebar__sizes">
+									<div className="section-title">
+										<h4>Shop by size</h4>
+									</div>
+									<div className="size__list">
+										<label htmlFor="xxs">
+											xxs
+											<input type="checkbox" id="xxs" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="xs">
+											xs
+											<input type="checkbox" id="xs" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="xss">
+											xs-s
+											<input type="checkbox" id="xss" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="s">
+											s
+											<input type="checkbox" id="s" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="m">
+											m
+											<input type="checkbox" id="m" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="ml">
+											m-l
+											<input type="checkbox" id="ml" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="l">
+											l
+											<input type="checkbox" id="l" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="xl">
+											xl
+											<input type="checkbox" id="xl" />
+											<span className="checkmark" />
+										</label>
+									</div>
+								</div>
+								<div className="sidebar__color">
+									<div className="section-title">
+										<h4>Shop by size</h4>
+									</div>
+									<div className="size__list color__list">
+										<label htmlFor="black">
+											Blacks
+											<input type="checkbox" id="black" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="whites">
+											Whites
+											<input
+												type="checkbox"
+												id="whites"
+											/>
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="reds">
+											Reds
+											<input type="checkbox" id="reds" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="greys">
+											Greys
+											<input type="checkbox" id="greys" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="blues">
+											Blues
+											<input type="checkbox" id="blues" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="beige">
+											Beige Tones
+											<input type="checkbox" id="beige" />
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="greens">
+											Greens
+											<input
+												type="checkbox"
+												id="greens"
+											/>
+											<span className="checkmark" />
+										</label>
+										<label htmlFor="yellows">
+											Yellows
+											<input
+												type="checkbox"
+												id="yellows"
+											/>
+											<span className="checkmark" />
+										</label>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div className="col-lg-9 col-md-9">
@@ -569,4 +845,4 @@ const Shop = () => {
 	)
 }
 
-export default Shop
+export default ShopBK
