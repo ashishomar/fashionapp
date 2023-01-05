@@ -64,6 +64,10 @@ const Navbar = () => {
 									</li>
 
 									<li>
+										<Link to="/Product">Product</Link>
+									</li>
+
+									<li>
 										<Link to="/Cart">Cart</Link>
                                     </li>
                                     
@@ -71,11 +75,6 @@ const Navbar = () => {
 										<Link to="/Checkout">Checkout</Link>
                                     </li>
                                     
-                                    <li>
-										<Link to="/Product">Product</Link>
-									</li>
-
-
 									<li>
 										<Link to="/Contact">Contact</Link>
 									</li>
