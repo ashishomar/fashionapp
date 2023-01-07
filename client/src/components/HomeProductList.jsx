@@ -1,6 +1,28 @@
 import React from "react"
+import axios from "axios"
+import { useState } from "react"
+import { useEffect } from "react"
+import HomeProducts from "./HomeProducts"
 
 const HomeProductList = () => {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get("/products")
+        setProducts(res.data)
+      } catch (error) {
+        console.log(error);
+      }
+      
+    }
+    fetchProducts()
+
+  },[])
+
+
 	return (
 		<>
 			<section className="product spad">
@@ -8,7 +30,7 @@ const HomeProductList = () => {
 					<div className="row">
 						<div className="col-lg-4 col-md-4">
 							<div className="section-title">
-								<h4>New product</h4>
+								<h4>product</h4>
 							</div>
 						</div>
 						{/* <div className="col-lg-8 col-md-8">
@@ -27,8 +49,10 @@ const HomeProductList = () => {
           <div className="row property__gallery">
             
 
+            {products.slice(8).map((product) => (
+                <HomeProducts product={product} key={product._id}/>
+            ))}
 
-            
 						{/* <div className="col-lg-3 col-md-4 col-sm-6 mix women">
 							<div className="product__item">
 								<div

@@ -1,9 +1,33 @@
-import React from "react"
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
 import Footer from "../components/Footer"
 import Instagram from "../components/Instagram"
 import Navbar from "../components/Navbar"
+import ShopProducts from "../components/ShopProducts"
+import { Link } from "react-router-dom"
 
 const Shop = () => {
+	const [products, setProducts] = useState([])
+
+	const search = useLocation().search;
+	const cat = new URLSearchParams(search).get("cat")
+
+	useEffect(() => {
+		const fetchProducts = async () => {
+			try {
+				var catstr = "";
+				if (cat) catstr = "?category=" + cat;
+				const res = await axios.get("/products" + catstr)
+				console.log(catstr)
+				setProducts(res.data)
+			} catch (error) {
+				console.log(error)
+			}
+		}
+		fetchProducts()
+	}, [cat])
+
 	return (
 		<>
 			<Navbar />
@@ -39,73 +63,74 @@ const Shop = () => {
 											id="accordionExample">
 											<div className="card">
 												<div className="card-heading active">
-													<a
+												<Link to="/shop"
+														data-toggle="collapse"
+														data-target="#collapseOne">
+														All
+													</Link>
+												</div>
+											</div>
+											<div className="card">
+												<div className="card-heading active">
+												<Link to="/shop?cat=Women"
 														data-toggle="collapse"
 														data-target="#collapseOne">
 														Women
-													</a>
+													</Link>
 												</div>
-											
 											</div>
 											<div className="card">
 												<div className="card-heading">
-													<a
+													<Link to="/shop?cat=Men"
 														data-toggle="collapse"
 														data-target="#collapseTwo">
 														Men
-													</a>
+													</Link>
 												</div>
-												
 											</div>
 											<div className="card">
 												<div className="card-heading">
-													<a
+													<Link to="/shop?cat=Kids"
 														data-toggle="collapse"
 														data-target="#collapseThree">
 														Kids
-													</a>
+													</Link>
 												</div>
 												<div
 													id="collapseThree"
 													className="collapse"
-													data-parent="#accordionExample">
-													
-												</div>
+													data-parent="#accordionExample"></div>
 											</div>
 											<div className="card">
 												<div className="card-heading">
-													<a
+													<Link to="/shop?cat=Accessories"
 														data-toggle="collapse"
 														data-target="#collapseFour">
 														Accessories
-													</a>
+													</Link>
 												</div>
 												<div
 													id="collapseFour"
 													className="collapse"
-													data-parent="#accordionExample">
-													
-												</div>
+													data-parent="#accordionExample"></div>
 											</div>
 											<div className="card">
 												<div className="card-heading">
-													<a
+													<Link to="/shop?cat=Cosmetic"
 														data-toggle="collapse"
 														data-target="#collapseFive">
 														Cosmetic
-													</a>
+													</Link>
 												</div>
 												<div
 													id="collapseFive"
 													className="collapse"
-													data-parent="#accordionExample">
-													
-												</div>
+													data-parent="#accordionExample"></div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div className="sidebar__filter">
+								{/* <div className="sidebar__filter">
 									<div className="section-title">
 										<h4>Shop by price</h4>
 									</div>
@@ -130,422 +155,18 @@ const Shop = () => {
 										</div>
 									</div>
 									<a href="#">Filter</a>
-								</div>
-								
-								
+								</div> */}
 							</div>
 						</div>
 						<div className="col-lg-9 col-md-9">
 							<div className="row">
-								<div className="col-lg-4 col-md-6">
-									<div className="product__item">
-										<div
-											className="product__item__pic set-bg"
-											style={{
-                                                backgroundImage: `url("img/shop/shop-1.jpg")`}}>
-											<div className="label new">New</div>
-											<ul className="product__hover">
-												<li>
-													<a
-														href="img/shop/shop-1.jpg"
-														className="image-popup">
-														<span className="arrow_expand" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_heart_alt" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_bag_alt" />
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div className="product__item__text">
-											<h6>
-												<a href="#">
-													Furry hooded parka
-												</a>
-											</h6>
-											<div className="rating">
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-											</div>
-											<div className="product__price">
-												$ 59.0
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="product__item">
-										<div
-											className="product__item__pic set-bg"
-											style={{
-                                                backgroundImage: `url("img/shop/shop-2.jpg")`}}>
-											<ul className="product__hover">
-												<li>
-													<a
-														href="img/shop/shop-2.jpg"
-														className="image-popup">
-														<span className="arrow_expand" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_heart_alt" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_bag_alt" />
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div className="product__item__text">
-											<h6>
-												<a href="#">
-													Flowy striped skirt
-												</a>
-											</h6>
-											<div className="rating">
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-											</div>
-											<div className="product__price">
-												$ 49.0
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="product__item">
-										<div
-											className="product__item__pic set-bg"
-											style={{
-                                                backgroundImage: `url("img/shop/shop-3.jpg")`}}>
-											<ul className="product__hover">
-												<li>
-													<a
-														href="img/shop/shop-3.jpg"
-														className="image-popup">
-														<span className="arrow_expand" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_heart_alt" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_bag_alt" />
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div className="product__item__text">
-											<h6>
-												<a href="#">Croc-effect bag</a>
-											</h6>
-											<div className="rating">
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-											</div>
-											<div className="product__price">
-												$ 59.0
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="product__item">
-										<div
-											className="product__item__pic set-bg"
-											style={{
-                                                backgroundImage: `url("img/shop/shop-4.jpg")`}}>
-											<ul className="product__hover">
-												<li>
-													<a
-														href="img/shop/shop-4.jpg"
-														className="image-popup">
-														<span className="arrow_expand" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_heart_alt" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_bag_alt" />
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div className="product__item__text">
-											<h6>
-												<a href="#">
-													Dark wash Xavi jeans
-												</a>
-											</h6>
-											<div className="rating">
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-											</div>
-											<div className="product__price">
-												$ 59.0
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="product__item sale">
-										<div
-											className="product__item__pic set-bg"
-											style={{
-                                                backgroundImage: `url("img/shop/shop-5.jpg")`}}>
-											<div className="label">Sale</div>
-											<ul className="product__hover">
-												<li>
-													<a
-														href="img/shop/shop-5.jpg"
-														className="image-popup">
-														<span className="arrow_expand" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_heart_alt" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_bag_alt" />
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div className="product__item__text">
-											<h6>
-												<a href="#">
-													Ankle-cuff sandals
-												</a>
-											</h6>
-											<div className="rating">
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-											</div>
-											<div className="product__price">
-												$ 49.0 <span>$ 59.0</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="product__item">
-										<div
-											className="product__item__pic set-bg"
-											style={{
-                                                backgroundImage: `url("img/shop/shop-6.jpg")`}}>
-											<ul className="product__hover">
-												<li>
-													<a
-														href="img/shop/shop-6.jpg"
-														className="image-popup">
-														<span className="arrow_expand" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_heart_alt" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_bag_alt" />
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div className="product__item__text">
-											<h6>
-												<a href="#">
-													Contrasting sunglasses
-												</a>
-											</h6>
-											<div className="rating">
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-											</div>
-											<div className="product__price">
-												$ 59.0
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="product__item">
-										<div
-											className="product__item__pic set-bg"
-											style={{
-                                                backgroundImage: `url("img/shop/shop-7.jpg")`}}>
-											<ul className="product__hover">
-												<li>
-													<a
-														href="img/shop/shop-7.jpg"
-														className="image-popup">
-														<span className="arrow_expand" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_heart_alt" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_bag_alt" />
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div className="product__item__text">
-											<h6>
-												<a href="#">
-													Circular pendant earrings
-												</a>
-											</h6>
-											<div className="rating">
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-											</div>
-											<div className="product__price">
-												$ 59.0
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="product__item">
-										<div
-											className="product__item__pic set-bg"
-											style={{
-                                                backgroundImage: `url("img/shop/shop-8.jpg")`}}>
-											<div className="label stockout stockblue">
-												Out Of Stock
-											</div>
-											<ul className="product__hover">
-												<li>
-													<a
-														href="img/shop/shop-8.jpg"
-														className="image-popup">
-														<span className="arrow_expand" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_heart_alt" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_bag_alt" />
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div className="product__item__text">
-											<h6>
-												<a href="#">Cotton T-Shirt</a>
-											</h6>
-											<div className="rating">
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-											</div>
-											<div className="product__price">
-												$ 59.0
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6">
-									<div className="product__item sale">
-										<div
-											className="product__item__pic set-bg"
-											style={{
-                                                backgroundImage: `url("img/shop/shop-9.jpg")`}}>
-											<div className="label">Sale</div>
-											<ul className="product__hover">
-												<li>
-													<a
-														href="img/shop/shop-9.jpg"
-														className="image-popup">
-														<span className="arrow_expand" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_heart_alt" />
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span className="icon_bag_alt" />
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div className="product__item__text">
-											<h6>
-												<a href="#">
-													Water resistant zips
-													backpack
-												</a>
-											</h6>
-											<div className="rating">
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-												<i className="fa fa-star" />
-											</div>
-											<div className="product__price">
-												$ 49.0 <span>$ 59.0</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-12 text-center">
+								
+									{products.map((product) => (
+										<ShopProducts product={product} key={product._id}/>
+									))}
+								
+
+								{/* <div className="col-lg-12 text-center">
 									<div className="pagination__option">
 										<a href="#">1</a>
 										<a href="#">2</a>
@@ -554,17 +175,17 @@ const Shop = () => {
 											<i className="fa fa-angle-right" />
 										</a>
 									</div>
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 			{/* Shop Section End */}
-			
-            <Instagram/>
-			
-            <Footer/>
+
+			<Instagram />
+
+			<Footer />
 		</>
 	)
 }

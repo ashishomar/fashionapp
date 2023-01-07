@@ -1,9 +1,30 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Instagram from '../components/Instagram'
 import Navbar from '../components/Navbar'
 
+
 const Product = () => {
+  const [product, setProduct] = useState({})
+  const search = useLocation().search;
+  const id = new URLSearchParams(search).get("id")
+  
+  useEffect(() => {
+		const fetchProducts = async () => {
+			try {				
+				const res = await axios.get("/products/find/"+id)				
+        setProduct(res.data)
+        console.log(res.data);
+			} catch (error) {
+				console.log(error)
+			}
+		}
+		fetchProducts()
+	}, [id])
+
+
   return (
     <>
     {/* Page Preloder */}
@@ -25,7 +46,7 @@ const Product = () => {
               <i className="fa fa-home" /> Home
             </a>
             
-            <span>Essential structured blazer</span>
+            <span>{product.title}</span>
           </div>
         </div>
       </div>
@@ -38,7 +59,7 @@ const Product = () => {
       <div className="row">
         <div className="col-lg-6">
           <div className="product__details__pic">
-            <div className="product__details__pic__left product__thumb nice-scroll">
+            {/* <div className="product__details__pic__left product__thumb nice-scroll">
               <a className="pt active" href="#product-1">
                 <img src="img/product/details/thumb-1.jpg" alt="" />
               </a>
@@ -51,16 +72,17 @@ const Product = () => {
               <a className="pt" href="#product-4">
                 <img src="img/product/details/thumb-4.jpg" alt="" />
               </a>
-            </div>
+            </div> */}
             <div className="product__details__slider__content">
-              <div className="product__details__pic__slider owl-carousel">
+              
                 <img
                   data-hash="product-1"
                   className="product__big__img"
-                  src="img/product/details/product-1.jpg"
-                  alt=""
+                  src={product.img}
+                      alt=""
+                      style={{width: 350, marginLeft: 100 }}
                 />
-                <img
+                {/* <img
                   data-hash="product-2"
                   className="product__big__img"
                   src="img/product/details/product-3.jpg"
@@ -77,15 +99,15 @@ const Product = () => {
                   className="product__big__img"
                   src="img/product/details/product-4.jpg"
                   alt=""
-                />
-              </div>
+                /> */}
+              
             </div>
           </div>
         </div>
         <div className="col-lg-6">
           <div className="product__details__text">
             <h3>
-              Essential structured blazer{" "}
+              {product.title}{" "}
               <span>Brand: SKMEIMore Men Watches from SKMEI</span>
             </h3>
             <div className="rating">
@@ -97,12 +119,11 @@ const Product = () => {
               <span>( 138 reviews )</span>
             </div>
             <div className="product__details__price">
-              $ 75.0 <span>$ 83.0</span>
+                    $ {product.price}
+                    {/* <span>$ 83.0</span> */}
             </div>
             <p>
-              Nemo enim ipsam voluptatem quia aspernatur aut odit aut loret
-              fugit, sed quia consequuntur magni lores eos qui ratione
-              voluptatem sequi nesciunt.
+              {product.desc}
             </p>
             <div className="product__details__button">
               <div className="quantity">
@@ -120,11 +141,11 @@ const Product = () => {
                     <span className="icon_heart_alt" />
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#">
                     <span className="icon_adjust-horiz" />
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="product__details__widget">
@@ -139,7 +160,7 @@ const Product = () => {
                     </label>
                   </div>
                 </li>
-                <li>
+                {/* <li>
                   <span>Available color:</span>
                   <div className="color__checkbox">
                     <label htmlFor="red">
@@ -160,7 +181,7 @@ const Product = () => {
                       <span className="checkmark grey-bg" />
                     </label>
                   </div>
-                </li>
+                </li> */}
                 <li>
                   <span>Available size:</span>
                   <div className="size__btn">
@@ -179,10 +200,10 @@ const Product = () => {
                     </label>
                   </div>
                 </li>
-                <li>
+                {/* <li>
                   <span>Promotions:</span>
                   <p>Free shipping</p>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

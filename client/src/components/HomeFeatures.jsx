@@ -21,7 +21,7 @@ const HomeFeatures = () => {
                   incidid-unt labore edolore magna aliquapendisse ultrices
                   gravida.
                 </p>
-                <Link to="/shop?cat=women">Shop now</Link>
+                <Link to="/shop?cat=Women">Shop now</Link>
               </div>
             </div>
           </div>
@@ -37,7 +37,7 @@ const HomeFeatures = () => {
                   <div className="categories__text">
                     <h4>Men’s fashion</h4>
                     <p>358 items</p>
-                    <Link to="/shop?cat=men">Shop now</Link>
+                    <Link to="/shop?cat=Men">Shop now</Link>
                   </div>
                 </div>
               </div>
@@ -51,7 +51,7 @@ const HomeFeatures = () => {
                   <div className="categories__text">
                     <h4>Kid’s fashion</h4>
                     <p>273 items</p>
-                    <Link to="/shop?cat=kids">Shop now</Link>
+                    <Link to="/shop?cat=Kids">Shop now</Link>
                   </div>
                 </div>
               </div>
@@ -65,7 +65,7 @@ const HomeFeatures = () => {
                   <div className="categories__text">
                     <h4>Cosmetics</h4>
                     <p>159 items</p>
-                    <Link to="/shop?cat=cosmetics">Shop now</Link>
+                    <Link to="/shop?cat=Cosmetics">Shop now</Link>
                   </div>
                 </div>
               </div>
@@ -79,7 +79,7 @@ const HomeFeatures = () => {
                   <div className="categories__text">
                     <h4>Accessories</h4>
                     <p>792 items</p>
-                    <Link to="/shop?cat=accessories">Shop now</Link>
+                    <Link to="/shop?cat=Accessories">Shop now</Link>
                   </div>
                 </div>
               </div>
