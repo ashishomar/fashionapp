@@ -11,7 +11,7 @@ const HomeProductList = () => {
 								<h4>New product</h4>
 							</div>
 						</div>
-						<div className="col-lg-8 col-md-8">
+						{/* <div className="col-lg-8 col-md-8">
 							<ul className="filter__controls">
 								<li className="active" data-filter="*">
 									All
@@ -22,10 +22,14 @@ const HomeProductList = () => {
 								<li data-filter=".accessories">Accessories</li>
 								<li data-filter=".cosmetic">Cosmetics</li>
 							</ul>
-						</div>
+						</div> */}
 					</div>
-					<div className="row property__gallery">
-						<div className="col-lg-3 col-md-4 col-sm-6 mix women">
+          <div className="row property__gallery">
+            
+
+
+            
+						{/* <div className="col-lg-3 col-md-4 col-sm-6 mix women">
 							<div className="product__item">
 								<div
 									className="product__item__pic set-bg"
@@ -372,7 +376,7 @@ const HomeProductList = () => {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</section>
